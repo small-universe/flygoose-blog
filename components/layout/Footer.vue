@@ -110,7 +110,7 @@ getList()
   color: #67788a;
 }
 .footer {
-  width: 330px;
+  width: 300px;
   border-left: 1px solid #ececec;
   padding-left: 20px;
   flex-shrink: 0;

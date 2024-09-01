@@ -24,7 +24,7 @@
 import request from '@/utils/request'
 const getTypeList = async () => {
   const { data }: any = await request.post('/blog/getCateList')
-  state.cateId = data ? data[0].id : null
+  state.cateId = data ? data[0].id : -1
   state.typeList = data || []
   load()
 }
@@ -39,13 +39,13 @@ const changeActiveType = (v: number) => {
 
 const state = reactive<Record<string, any>>({
   hasMore: true,
-  cateId: null,
+  cateId: -1,
   list: [],
   typeList: []
 })
 const pageNum = ref<number>(1)
 const load = async () => {
-  if (state.cateId == null) return
+  if (state.cateId == -1) return
   if (!state.hasMore) return
   const { data }: any = await request.post('/blog/getCateBlogList', {
     pageNum: pageNum.value,

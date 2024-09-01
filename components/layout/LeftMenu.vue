@@ -51,12 +51,12 @@ const menus = ref<Record<string, string>[]>([
 <style lang="less">
 .content-body {
   flex: 1;
-  max-width: calc(100% - 660px);
+  max-width: calc(100% - 500px);
 }
 .left-menu {
-  width: 330px;
+  width: 200px;
   border-right: 1px solid #ececec;
-  padding: 24px 0 24px 50px;
+  padding: 24px 0;
   flex-shrink: 0;
 }
 .left-menu-fixed {
