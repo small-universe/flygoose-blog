@@ -13,7 +13,7 @@
         <div class="content">{{ state.noticeInfo?.content }}</div>
       </div>
 
-      <img src="@/assets/images/logo.png" class="logo" />
+      <!--<img src="@/assets/images/logo.png" class="logo" />-->
       <p class="intro">
         {{ state.intro }}
       </p>
