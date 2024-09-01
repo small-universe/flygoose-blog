@@ -12,14 +12,14 @@
         <div class="header">
           <img :src="headerSrc" class="logo" />
           <span class="nav-title">
-            {{ userInfo?.nicker }}
+            {{ siteInfo?.title }}
           </span>
         </div>
       </NuxtLink>
       <a-input
         v-model:value="searchVal"
         class="search-input"
-        placeholder="探索码农社"
+        placeholder="搜索"
         allow-clear
         @keyup.enter="jumpSearch"
       >
@@ -43,21 +43,15 @@ const jumpSearch = () => {
     }
   })
 }
-const { data }: any = await request.post('/site/getWebmasterInfo')
-let userInfo = ref({
-  job: '',
-  intro: '',
-  email: '',
-  wechat: '',
-  slogan: '',
-  rewardCode: '',
-  avatar: '',
-  nicker: ''
+const { data }: any = await request.post('/site/getSiteInfo')
+let siteInfo = ref({
+  title: '',
+  cover: ''
 })
-userInfo.value = data || {}
+siteInfo.value = data || {}
 
 const headerSrc = computed(() => {
-  return userInfo.value?.avatar ? userInfo.value.avatar : ''
+  return siteInfo.value?.cover ? siteInfo.value.cover : ''
 })
 </script>
 
