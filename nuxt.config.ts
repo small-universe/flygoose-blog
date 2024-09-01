@@ -7,10 +7,10 @@ import prismjs from 'vite-plugin-prismjs'
 export default defineNuxtConfig({
   app: {
     head: {
-      title: '开源博客 - helloworld',
+      title: '技术博客 - UKnow',
       meta: [
-        { name: 'keywords', content: '开源博客,helloworld' },
-        { name: 'description', content: '开源博客 - helloworld' }
+        { name: 'keywords', content: '技术博客,UKnow' },
+        { name: 'description', content: '技术博客 - UKnow' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
