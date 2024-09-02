@@ -10,13 +10,13 @@
   <div class="content-containter">
     <SpecialMenu />
     <NuxtPage class="content-body" />
-    <DetailFooter />
+    <BlogSidebar />
   </div>
 </template>
 
 <script lang="ts" setup>
 import NavBar from '@/components/layout/NavBar.vue'
-import DetailFooter from '@/components/layout/detailFooter.vue'
+import BlogSidebar from '@/components/layout/blogSidebar.vue'
 import SpecialMenu from '@/components/layout/specialMenu.vue'
 </script>
 

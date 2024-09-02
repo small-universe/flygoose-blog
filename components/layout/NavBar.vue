@@ -9,7 +9,7 @@
   <div class="nav-bar visible">
     <div class="nav-content-box">
       <NuxtLink class="home-link" to="/">
-        <div class="header">
+        <div class="web-master">
           <img :src="headerSrc" class="logo" />
           <span class="nav-title">
             {{ siteInfo?.title }}
@@ -87,7 +87,7 @@ const headerSrc = computed(() => {
     left: 88px;
     font-size: 20px;
     color: #000000;
-    .header {
+    .web-master {
       display: flex;
       align-items: center;
     }

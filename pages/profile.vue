@@ -7,7 +7,7 @@
 -->
 <template>
   <div class="profile-container">
-    <div class="header">
+    <div class="web-master">
       <img :src="headerSrc" class="logo" />
       {{ userInfo.nicker }}
     </div>
@@ -76,7 +76,7 @@ const headerSrc = computed(() => {
     margin-bottom: 12px;
     margin-top: 48px;
   }
-  .header {
+  .web-master {
     margin-bottom: 20px;
     font-size: 34px;
   }

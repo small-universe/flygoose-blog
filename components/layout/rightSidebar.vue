@@ -13,10 +13,14 @@
         <div class="content">{{ state.noticeInfo?.content }}</div>
       </div>
 
-      <!--<img src="@/assets/images/logo.png" class="logo" />-->
-      <p class="intro">
-        {{ state.intro }}
-      </p>
+      <div class="web-master">
+        <a-avatar :src="state.webMasterInfo.avatar" :size='64'/>
+        <div>
+          <div class="name">{{ state.webMasterInfo.nicker }}</div>
+          <div class="intro">{{ state.webMasterInfo.intro }}</div>
+        </div>
+      </div>
+
       <div class="tags">
         <div class="title">热门搜索</div>
         <div class="tag-list">
@@ -59,6 +63,8 @@
 <script lang="ts" setup>
 import { MdCatalog } from 'md-editor-v3'
 import request from '@/utils/request'
+import { useWebMasterStore } from '@/stores';
+import { WebMaster } from '~/stores/types';
 let scrollElement: HTMLElement | undefined = undefined
 if (process.client) {
   scrollElement = document.documentElement
@@ -77,6 +83,8 @@ const state = reactive({
   tags: [],
   noticeInfo: {
     content: ''
+  },
+  webMasterInfo: <WebMaster> {
   }
 })
 const getDetail = async () => {
@@ -94,10 +102,20 @@ const getNoice = async () => {
   const { data }: any = await request.post('/site/getNoticeList')
   state.noticeInfo = data?.list ? data?.list[0] : null
 }
+
+// 获取站长信息并缓存
+const webMasterStore = useWebMasterStore()
+const getWebmasterInfo = async () => {
+  const { data } = await request.post('/site/getWebmasterInfo')
+  state.webMasterInfo = data || {}
+  webMasterStore.persist(data)
+}
+
 getNoice()
 getDetail()
 getTags()
 getList()
+getWebmasterInfo()
 </script>
 
 <style lang="less" scoped>
@@ -120,16 +138,24 @@ getList()
   padding: 24px 0;
   position: fixed;
   top: 60px;
-  .logo {
-    height: 36px;
+  
+  .web-master {
+    display: flex;
+    gap: 8px;
+    .name {
+      font-size: 20px;
+      color: #000;
+      margin-bottom: 8px;
+    }
+    .intro {
+      font-size: 13px;
+      line-height: 162.2%;
+      text-align: justify;
+      color: #21293c;
+      margin-top: 12px;
+    }
   }
-  .intro {
-    font-size: 13px;
-    line-height: 162.2%;
-    text-align: justify;
-    color: #21293c;
-    margin-top: 12px;
-  }
+
   .corp-links {
     margin-top: 48px;
     color: #67788a;

@@ -10,14 +10,14 @@
   <div class="content-containter">
     <LeftMenu />
     <NuxtPage class="content-body" />
-    <DetailFooter />
+    <BlogSidebar />
   </div>
 </template>
 
 <script lang="ts" setup>
 import NavBar from '@/components/layout/NavBar.vue'
 import LeftMenu from '@/components/layout/LeftMenu.vue'
-import DetailFooter from '@/components/layout/detailFooter.vue'
+import BlogSidebar from '@/components/layout/blogSidebar.vue'
 </script>
 
 <style lang="less" scoped>

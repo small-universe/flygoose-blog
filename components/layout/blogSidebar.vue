@@ -8,16 +8,15 @@
 <template>
   <div class="footer">
     <div class="footer-fixed">
-      <div class="header">
+
+      <div class="web-master">
+        <a-avatar :src="webMasterInfo.avatar" :size='64'/>
         <div>
-          <img :src="imgSrc" />
-        </div>
-        <div>
-          <div class="name">{{ userInfo.nicker }}</div>
-          <div class="job">{{ userInfo.job }}</div>
+          <div class="name">{{ webMasterInfo.nicker }}</div>
+          <div class="intro">{{ webMasterInfo.intro }}</div>
         </div>
       </div>
-      <div class="intro">{{ userInfo.intro }}</div>
+
       <div class="title">索引目录</div>
       <MdCatalog editor-id="preview-only" :scroll-element="scrollElement" />
       <div class="tags">
@@ -39,23 +38,15 @@
 <script lang="ts" setup>
 import { MdCatalog } from 'md-editor-v3'
 import request from '@/utils/request'
+import { useWebMasterStore } from '@/stores';
+
 let scrollElement: HTMLElement | undefined = undefined
 if (process.client) {
   scrollElement = document.documentElement
 }
 
-const { data }: any = await request.post('/site/getWebmasterInfo')
-let userInfo = ref({
-  job: '',
-  intro: '',
-  avatar: '',
-  nicker: ''
-})
-userInfo.value = data || {}
-
-const imgSrc = computed(() => {
-  return userInfo.value?.avatar ? userInfo.value.avatar : ''
-})
+const webMasterStore = useWebMasterStore()
+const webMasterInfo = reactive(webMasterStore.getInfo)
 
 const state = reactive({
   intro: '',
@@ -77,19 +68,22 @@ getTags()
   color: #67788a;
   font-size: 15px;
 }
-.header {
-  display: flex;
-  gap: 8px;
-}
-.name {
-  font-size: 20px;
-  color: #000;
-  margin-bottom: 8px;
-}
-.job {
-  color: #4b587c;
-  font-size: 13px;
-}
+.web-master {
+    display: flex;
+    gap: 8px;
+    .name {
+      font-size: 20px;
+      color: #000;
+      margin-bottom: 8px;
+    }
+    .intro {
+      font-size: 13px;
+      line-height: 162.2%;
+      text-align: justify;
+      color: #21293c;
+      margin-top: 12px;
+    }
+  }
 img {
   width: 56px;
   height: 56px;

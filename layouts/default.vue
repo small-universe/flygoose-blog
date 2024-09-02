@@ -10,14 +10,14 @@
   <div class="content-containter">
     <LeftMenu />
     <NuxtPage class="content-body" />
-    <Footer />
+    <RightSidebar />
   </div>
 </template>
 
 <script lang="ts" setup>
 import NavBar from '@/components/layout/NavBar.vue'
 import LeftMenu from '@/components/layout/LeftMenu.vue'
-import Footer from '@/components/layout/Footer.vue'
+import RightSidebar from '@/components/layout/rightSidebar.vue'
 </script>
 
 <style lang="less" scoped>
