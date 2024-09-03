@@ -30,7 +30,7 @@ export const useWebMasterStore = defineStore('webMaster', {
   }),
 
   actions: {
-    persist(webMaster: WebMaster) {
+    saveInfo(webMaster: WebMaster) {
       this.$patch(webMaster)
     }
   },
@@ -39,5 +39,8 @@ export const useWebMasterStore = defineStore('webMaster', {
     getInfo(): WebMaster {
       return this || {}
     }
-  }
+  },
+  persist: {
+    storage: persistedState.localStorage,
+  },
 })

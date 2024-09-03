@@ -108,7 +108,7 @@ const webMasterStore = useWebMasterStore()
 const getWebmasterInfo = async () => {
   const { data } = await request.post('/site/getWebmasterInfo')
   state.webMasterInfo = data || {}
-  webMasterStore.persist(data)
+  webMasterStore.saveInfo(data)
 }
 
 getNoice()
