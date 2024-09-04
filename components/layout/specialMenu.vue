@@ -10,7 +10,7 @@ import SpecialNav from '@/components/special/specialNav.vue'
 .special-menu {
   font-size: 15px;
   margin-top: 60px;
-  width: 330px;
+  width: 200px;
   flex-shrink: 0;
   border-right: 1px solid #ececec;
   padding-left: 85px;

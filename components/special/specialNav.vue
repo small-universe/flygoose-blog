@@ -1,5 +1,5 @@
 <template>
-  <div><i class="iconfont" style="margin-right: 12px">&#xe62e;</i>专栏目录</div>
+  <div style="font-size: large;"><i class="iconfont" style="margin-right: 12px">&#xe62e;</i>专栏目录</div>
   <ul>
     <li
       v-for="item in specialList"
