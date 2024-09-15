@@ -1,0 +1,4 @@
+# 忽略文件的复制
+**/node_modules
+**/.nuxt
+**/.output

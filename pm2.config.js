@@ -50,7 +50,6 @@ module.exports = {
       name: 'czblog',
       port: '58081',
       exec_mode: 'cluster',
-      instances: 'max',
       instances: 2,
       script: './.output/server/index.mjs'
     }
